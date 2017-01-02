@@ -1,0 +1,64 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<title>Pizza Shop</title>
+<link rel="stylesheet" href="/pizza3/styles/main.css;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B ">
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <link rel="shortcut icon" href="/pizza3/images/pizzapie.ico;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B">
+<body>
+	<header>
+	    <img src="/pizza3/images/pizzapie.jpg;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B" alt="Pizza pie" >
+		<h1>Pizza Shop</h1>
+	</header>
+
+<aside id="sidebar">
+    <nav>
+        
+        
+        
+        
+        
+
+        <h4>Links</h4>
+
+        <a href="/pizza3/welcome.html;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B">Home</a><br>
+        <a href="/pizza3/adminController/adminWelcome.html;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B">Admin Service</a><br>
+        <a href="/pizza3/studentWelcome.html;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B">Student Service</a> <br>
+        <a href="/pizza3/adminController/listVariables.html;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B"> List Variables</a><br>
+        <a href="/pizza3/adminController/logout.html;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B"> Logout</a><br>
+    </nav>
+</aside>
+
+
+<section>
+<h3>Current Toppings</h3>
+	
+				Mushrooms <br>
+	
+	<br>
+	
+	<form action="toppings;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B" method="post">
+		Add a new topping: <input type="text" name="item"> 
+		<input type="submit" name="command" value="add"> <br>
+	</form>
+	<br>
+	<form action="toppings;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B" method="post">
+		Delete an old topping:
+		 <select name="item">
+			
+				<option value="Mushrooms">Mushrooms
+				</option>
+			
+		</select> 
+		<input type="submit" name="command" value="remove">
+	</form>
+	<br> <a href="adminWelcome.html;jsessionid=EE758DCA26B3BF8BD682CD37F49E155B"> Back to Admin page</a>
+</section>
+
+
+</body>
+</html>
+
+

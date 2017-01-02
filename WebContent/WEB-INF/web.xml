@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="pizza3" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>pizza3</display-name>
+	<!--  to handle requests to local path pizza3/ -->
+	<welcome-file-list>
+		<welcome-file>welcome.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- for SystemTestServlet -->
+	<servlet>
+		<description>SystemTest Servlet</description>
+		<display-name>SysTestServlet</display-name>
+		<servlet-name>SysTestServlet</servlet-name>
+		<servlet-class>cs636.pizza.presentation.web.SysTestServlet</servlet-class>
+		<init-param>
+			<param-name>compilerSourceVM</param-name>
+			<param-value>1.7</param-value>
+		</init-param>
+		<init-param>
+			<param-name>compilerTargetVM</param-name>
+			<param-value>1.7</param-value>
+		</init-param>
+
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SysTestServlet</servlet-name>
+		<url-pattern>/servlet/SystemTest</url-pattern>
+		<!-- not load-on-startup (i.e. load-when-needed) -->
+	</servlet-mapping>
+	<!-- We have two production servlets, one for student actions and another
+	for admin actions, with clearly separate URL spaces. That way, we can more
+	easily add different security constraints for the two kinds of users. -->
+	<servlet>
+		<description>Admin Servlet</description>
+		<display-name>AdminServlet</display-name>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>cs636.pizza.presentation.web.AdminServlet</servlet-class>
+		<!-- make this servlet load after the dispatcher servlet -->
+		<load-on-startup>2</load-on-startup>  
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/adminController/*</url-pattern>
+	</servlet-mapping>
+	<!-- We use *.html for page-to-page URLs in the student pages: all these URLs 
+	   point to the DispatcherServlet, which knows all the user-related controllers -->
+	<servlet>
+		<description>MVC Dispatcher Servlet</description>
+		<display-name>DispatcherServlet</display-name>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<servlet-class>cs636.pizza.presentation.web.DispatcherServlet</servlet-class>
+		<!-- make this servlet load at web app startup (including redeployment) -->
+		<load-on-startup>1</load-on-startup>  
+	</servlet>
+	<!-- We use *.html for page-to-page URLs in this app: all these URLs 
+	    point to the DispatcherServlet, which knows all the controllers -->
+	<servlet-mapping>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+</web-app>

@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Error</title>
+</head>
+<body>
+	<h1>Error: cs636.pizza.service.ServiceException: Topping was not added successfully: 
+  cause: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.3.v20160428-59c81c5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: user lacks privilege or object not found: PIZZA_ID_GEN
+Error Code: -5501
+Call: UPDATE PIZZA_ID_GEN SET GEN_VAL = GEN_VAL + ? WHERE GEN_NAME = ?
+	bind => [50, MenuToppingId_Gen]
+Query: DataModifyQuery(name="MenuToppingId_Gen" sql="UPDATE PIZZA_ID_GEN SET GEN_VAL = GEN_VAL + ? WHERE GEN_NAME = ?")
+    cause's cause: java.sql.SQLSyntaxErrorException: user lacks privilege or object not found: PIZZA_ID_GEN
+ Stack Trace: cs636.pizza.service.ServiceException: Topping was not added successfully: 
+	at cs636.pizza.service.AdminService.addTopping(AdminService.java:62)
+	at cs636.pizza.presentation.web.AdminServlet.manageToppings(AdminServlet.java:181)
+	at cs636.pizza.presentation.web.AdminServlet.doGet(AdminServlet.java:68)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:108)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:522)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1110)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:785)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1425)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.3.v20160428-59c81c5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: user lacks privilege or object not found: PIZZA_ID_GEN
+Error Code: -5501
+Call: UPDATE PIZZA_ID_GEN SET GEN_VAL = GEN_VAL + ? WHERE GEN_NAME = ?
+	bind => [50, MenuToppingId_Gen]
+Query: DataModifyQuery(name="MenuToppingId_Gen" sql="UPDATE PIZZA_ID_GEN SET GEN_VAL = GEN_VAL + ? WHERE GEN_NAME = ?")
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:340)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:684)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:560)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2056)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:306)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:242)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:228)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeNoSelectCall(DatasourceCallQueryMechanism.java:271)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeNoSelect(DatasourceCallQueryMechanism.java:251)
+	at org.eclipse.persistence.queries.DataModifyQuery.executeDatabaseQuery(DataModifyQuery.java:85)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:904)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.internalExecuteQuery(AbstractSession.java:3271)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1857)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1839)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1804)
+	at org.eclipse.persistence.sequencing.QuerySequence.update(QuerySequence.java:340)
+	at org.eclipse.persistence.sequencing.QuerySequence.updateAndSelectSequence(QuerySequence.java:277)
+	at org.eclipse.persistence.sequencing.StandardSequence.getGeneratedVector(StandardSequence.java:71)
+	at org.eclipse.persistence.sequencing.Sequence.getGeneratedVector(Sequence.java:257)
+	at org.eclipse.persistence.internal.sequencing.SequencingManager$Preallocation_Transaction_NoAccessor_State.getNextValue(SequencingManager.java:485)
+	at org.eclipse.persistence.internal.sequencing.SequencingManager.getNextValue(SequencingManager.java:1107)
+	at org.eclipse.persistence.internal.sequencing.ClientSessionSequencing.getNextValue(ClientSessionSequencing.java:70)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.assignSequenceNumber(ObjectBuilder.java:362)
+	at org.eclipse.persistence.internal.descriptors.ObjectBuilder.assignSequenceNumber(ObjectBuilder.java:321)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.assignSequenceNumber(UnitOfWorkImpl.java:486)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNotRegisteredNewObjectForPersist(UnitOfWorkImpl.java:4288)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.registerNotRegisteredNewObjectForPersist(RepeatableWriteUnitOfWork.java:521)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.registerNewObjectForPersist(UnitOfWorkImpl.java:4233)
+	at org.eclipse.persistence.internal.jpa.EntityManagerImpl.persist(EntityManagerImpl.java:507)
+	at cs636.pizza.dao.MenuDAO.createMenuTopping(MenuDAO.java:29)
+	at cs636.pizza.service.AdminService.addTopping(AdminService.java:58)
+	... 26 more
+Caused by: java.sql.SQLSyntaxErrorException: user lacks privilege or object not found: PIZZA_ID_GEN
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCPreparedStatement.<init>(Unknown Source)
+	at org.hsqldb.jdbc.JDBCConnection.prepareStatement(Unknown Source)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:297)
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:297)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.prepareStatement(DatabaseAccessor.java:1565)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.prepareStatement(DatabaseAccessor.java:1514)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseCall.prepareStatement(DatabaseCall.java:778)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:621)
+	... 55 more
+</h1>
+	<br> 
+	<br> 
+	<a href="adminWelcome.html;jsessionid=68B48A409155626EDA338AC076F3E465"> Back to Admin Menu</a>
+	
+</body>
+</html>
